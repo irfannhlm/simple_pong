@@ -19,9 +19,9 @@ entity TwoPlayerGame is
 end TwoPlayerGame;
 
 architecture behavioral of TwoPlayerGame is
-    constant clock_frequency : natural := 50000000; -- 50 MHz
-    constant balls_frequency : natural := 150; -- 50 Hz
-    constant players_frequency : natural := 200; -- 25 Hz
+    constant clock_frequency : natural := 50e6; -- 50 MHz
+    constant balls_frequency : natural := 150; -- 150 Hz
+    constant players_frequency : natural := 200; -- 200 Hz
 
     constant leftmost_pixel, topmost_pixel : natural := 0;
     constant bottommost_pixel : natural := 480;
