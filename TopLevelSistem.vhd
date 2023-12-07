@@ -53,10 +53,6 @@ architecture behavioral of TopLevelSistem is
     );
     end component OnePlayerGame;
 
-    component vga is
-
-    end component vga;
-
     signal vga_red1, vga_green1, vga_blue1 : std_logic_vector(3 downto 0) := (others => '0');
     signal vga_red2, vga_green2, vga_blue2 : std_logic_vector(3 downto 0) := (others => '0');
     signal vga_hsync1, vga_hsync2, vga_vsync1, vga_vsync2 : std_logic;
