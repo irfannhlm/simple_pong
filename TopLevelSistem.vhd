@@ -35,7 +35,6 @@ architecture behavioral of TopLevelSistem is
         vga_hsync : out std_logic;
         vga_vsync : out std_logic
     );
-
     end component TwoPlayerGame;
 
     component OnePlayerGame is
