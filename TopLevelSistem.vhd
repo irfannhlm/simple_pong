@@ -87,44 +87,48 @@ begin
         vga_hsync => vga_hsync2,
         vga_vsync => vga_vsync2
     );
+        
     modes_controller : process(clock)
     begin
         if rising_edge(clock) then
             case game_mode is
-                when idle =>
-                    if (switch(9) = '1') then
-                        game_mode <= one_player;
-                    elsif (switch(8) = '1') then
-                        game_mode <= two_player;
-                    end if;
-                when one_player =>
-                    if (switch(9) = '0') then
-                        game_mode <= idle;
-                    end if;
+            
+            when idle =>
+                if (switch(9) = '1') then
+                    game_mode <= one_player;
+                elsif (switch(8) = '1') then
+                    game_mode <= two_player;
+                end if;
+                    
+            when one_player =>
+                if (switch(9) = '0') then
+                    game_mode <= idle;
+                end if;
 
-                    switch1 <= switch;
-                    keys1 <= keys;
-                    led_red <= led_red1;
-                    led_green <= led_green1;
-                    vga_red <= vga_red1;
-                    vga_green <= vga_green1;
-                    vga_blue <= vga_blue1;
-                    vga_hsync <= vga_hsync1;
-                    vga_vsync <= vga_vsync1;
-                when two_player =>
-                    if (switch(8) = '0') then
-                        game_mode <= idle;
-                    end if;
+                switch1 <= switch;
+                keys1 <= keys;
+                led_red <= led_red1;
+                led_green <= led_green1;
+                vga_red <= vga_red1;
+                vga_green <= vga_green1;
+                vga_blue <= vga_blue1;
+                vga_hsync <= vga_hsync1;
+                vga_vsync <= vga_vsync1;
 
-                    switch2 <= switch;
-                    keys2 <= keys;
-                    led_red <= led_red2;
-                    led_green <= led_green2;
-                    vga_red <= vga_red2;
-                    vga_green <= vga_green2;
-                    vga_blue <= vga_blue2;
-                    vga_hsync <= vga_hsync2;
-                    vga_vsync <= vga_vsync2;
+            when two_player =>
+                if (switch(8) = '0') then
+                    game_mode <= idle;
+                end if;
+
+                switch2 <= switch;
+                keys2 <= keys;
+                led_red <= led_red2;
+                led_green <= led_green2;
+                vga_red <= vga_red2;
+                vga_green <= vga_green2;
+                vga_blue <= vga_blue2;
+                vga_hsync <= vga_hsync2;
+                vga_vsync <= vga_vsync2;
 
             end case;
         end if;
